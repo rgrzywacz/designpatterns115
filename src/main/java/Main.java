@@ -1,3 +1,7 @@
+import java.time.LocalDateTime;
+
+import creational.fluentbuilder.Priority;
+import creational.fluentbuilderlombok.Task;
 import structural.facade.AccountBalanceService;
 import structural.facade.AccountDetailsService;
 import structural.facade.MoneySpendService;
@@ -18,7 +22,13 @@ public class Main {
         bankServiceFacade.moneySpendInLastMonth();
         bankServiceFacade.makeMoneyTransfer();
 
+        /**
+         * Lombok demo
+         */
+        Task task = Task.builder().id(1).dueDate(LocalDateTime.now().plusDays(2)).priority(Priority.HIGH).build();
 
+        task.setDescription("Opis");
+        System.out.println(task.toString());
 
     }
 }
